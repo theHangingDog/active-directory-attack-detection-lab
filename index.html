@@ -1,150 +1,169 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>AD_Attack_and_Detection.ctb</title>
-  <meta name="generator" content="CherryTree">
-  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Active Directory Attack &amp; Detection Lab</title>
+  <meta name="description" content="Hands-on lab documentation covering Active Directory attack techniques and detection strategies." />
+  <link rel="stylesheet" href="res/docs.css" />
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-<div class='two-panels'>
-<div class='tree-panel'>
-<div class='tree'>
-<p>
-<strong>Index</strong></br>
-<button onclick='expandAllSubtrees()'>Expand All</button> <button onclick='collapseAllSubtrees()'>Collapse All</button>
-</p>
-<ul class='outermost'>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection_1.html')">Active_Directory-Attack_And_Detection</a></li><ul class='subtree'>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks_4.html')">01-Attacks</a></li><ul class='subtree'>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M1-Initial_AD_Exploitation_11.html')">M1-Initial AD Exploitation</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M1-Initial_AD_Exploitation--LLMNR_Poisoning_12.html')">LLMNR Poisoning</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M1-Initial_AD_Exploitation--SMB_Enumeration_15.html')">SMB Enumeration</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M2-AD_Post_Enumeration_18.html')">M2-AD Post Enumeration</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M2-AD_Post_Enumeration--rpcclient_20.html')">rpcclient</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M2-AD_Post_Enumeration--BloodHound_22.html')">BloodHound</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M2-AD_Post_Enumeration--PowerView_25.html')">PowerView</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M2-AD_Post_Enumeration--nxc_ldap_28.html')">nxc ldap</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse_30.html')">M3-DACL Abuse</a></li><ul class='subtree'>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--GenericAll_31.html')">GenericAll</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--GenericAll--User_Own_Generic_ALL_Right_For_Domain_Admin_Group_32.html')">User Own Generic ALL Right For Domain Admin Group</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--GenericAll--User_Owns_Generic_ALL_for_Another_User_33.html')">User Owns Generic ALL for Another User</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--GenericWrite_36.html')">GenericWrite</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--GenericWrite--User_Owns_GenericWrite_Permission_on_a_Group_37.html')">User Owns GenericWrite Permission on a Group</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--GenericWrite--User_Owns_GenericWrite_Permission_on_Another_User_38.html')">User Owns GenericWrite Permission on Another User</a></li>
-</ul>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--AllExtendedRights_43.html')">AllExtendedRights</a></li>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--WriteDACL_45.html')">WriteDACL</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--WriteDACL--WriteDACL_on_User_46.html')">WriteDACL on User</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--WriteDACL--WriteDACL_on_Group_47.html')">WriteDACL on Group</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--WriteOwner_49.html')">WriteOwner</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--WriteOwner--User_Owns_WriteOwner_Permission_on_Another_User_50.html')">User Owns WriteOwner Permission on Another User</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--WriteOwner--User_Owns_WriteOwner_Permission_on_Group_51.html')">User Owns WriteOwner Permission on Group</a></li>
-</ul>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--ForcePasswordChange_56.html')">ForcePasswordChange</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M3-DACL_Abuse--Self-Membership_59.html')">Self-Membership</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M4-Abusing_Kerberos_60.html')">M4-Abusing Kerberos</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M4-Abusing_Kerberos--AS-REP_Roasting_61.html')">AS-REP Roasting</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M4-Abusing_Kerberos--Kerberos_Brute_Force_Attack_66.html')">Kerberos Brute Force Attack</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M4-Abusing_Kerberos--Kerberoasting_64.html')">Kerberoasting</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M4-Abusing_Kerberos--Timeroasting_68.html')">Timeroasting</a></li>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M4-Abusing_Kerberos--Kerberos_Delegation_69.html')">Kerberos Delegation</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M4-Abusing_Kerberos--Kerberos_Delegation--Unconstrained_Delegation_70.html')">Unconstrained Delegation</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M4-Abusing_Kerberos--Kerberos_Delegation--Constrained_Delegation_73.html')">Constrained Delegation</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M4-Abusing_Kerberos--Kerberos_Delegation--Resource_Based_Constrained_Delegation_75.html')">Resource Based Constrained Delegation</a></li>
-</ul>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M5-Credential_Dumping_78.html')">M5-Credential Dumping</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M5-Credential_Dumping--NTDS.DIT_80.html')">NTDS.DIT</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M5-Credential_Dumping--SAM_and_Registry_Hive_82.html')">SAM and Registry Hive</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M5-Credential_Dumping--Domain_Cache_Credential_84.html')">Domain Cache Credential</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M5-Credential_Dumping--DCSync_Attack_86.html')">DCSync Attack</a></li>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M5-Credential_Dumping--ReadGMSAPassword_Attack_88.html')">ReadGMSAPassword Attack</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M5-Credential_Dumping--ReadGMSAPassword_Attack--Setup_Phase_89.html')">Setup Phase</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M5-Credential_Dumping--ReadGMSAPassword_Attack--Exploitation_Phase_90.html')">Exploitation Phase</a></li>
-</ul>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M6-Kerberos_Ticket_Attack_92.html')">M6-Kerberos Ticket Attack</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M6-Kerberos_Ticket_Attack--Golden_Ticket_94.html')">Golden Ticket</a></li>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M6-Kerberos_Ticket_Attack--Silver_Ticket_96.html')">Silver Ticket</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M6-Kerberos_Ticket_Attack--Silver_Ticket--Windows_Local_Execution_97.html')">Windows Local Execution</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M6-Kerberos_Ticket_Attack--Silver_Ticket--Persistence_Via_Service_Forgery_98.html')">Persistence Via Service Forgery</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M6-Kerberos_Ticket_Attack--Diamond_Ticket_100.html')">Diamond Ticket</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M6-Kerberos_Ticket_Attack--Diamond_Ticket--Remote_Execution_101.html')">Remote Execution</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M6-Kerberos_Ticket_Attack--Diamond_Ticket--Windows_Local_Execution_102.html')">Windows Local Execution</a></li>
-</ul>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--01-Attacks--M6-Kerberos_Ticket_Attack--Sapphire_Ticket_104.html')">Sapphire Ticket</a></li>
-</ul>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections_6.html')">02-Detections</a></li><ul class='subtree'>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M1-Initial_AD_Exploitation_13.html')">M1-Initial AD Exploitation</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M1-Initial_AD_Exploitation--LLMNR_Poisoning_Detection_14.html')">LLMNR Poisoning Detection</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M2-AD_Post_Enumeration_23.html')">M2-AD Post Enumeration</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M2-AD_Post_Enumeration--rpcclient_27.html')">rpcclient</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M2-AD_Post_Enumeration--BloodHound_24.html')">BloodHound</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M2-AD_Post_Enumeration--PowerView_26.html')">PowerView</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M2-AD_Post_Enumeration--nxc_ldap_29.html')">nxc ldap</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse_34.html')">M3-DACL Abuse</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--GenericAll_35.html')">GenericAll</a></li>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--GenericWrite_39.html')">GenericWrite</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--GenericWrite--User_Owns_Generic_Write_Permission_on_Group_40.html')">User Owns Generic Write Permission on Group</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--GenericWrite--User_Owns_Generic_Write_Permission_On_Another_User_41.html')">User Owns Generic Write Permission On Another User</a></li>
-</ul>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--AllExtendedRights_44.html')">AllExtendedRights</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--WriteDACL_48.html')">WriteDACL</a></li>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--WriteOwner_52.html')">WriteOwner</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--WriteOwner--User_Owns_WriteOwner_Permission_On_Another_User_53.html')">User Owns WriteOwner Permission On Another User</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--WriteOwner--User_Owns_WriteOwner_Permission_On_Group_54.html')">User Owns WriteOwner Permission On Group</a></li>
-</ul>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--ForcePasswordChange_57.html')">ForcePasswordChange</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M3-DACL_Abuse--Self-Membership_58.html')">Self-Membership</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M4-Abusing_Kerberos_62.html')">M4-Abusing Kerberos</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M4-Abusing_Kerberos--AS-REP_Roasting_63.html')">AS-REP Roasting</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M4-Abusing_Kerberos--Kerberos_Brute_Force_Attack_67.html')">Kerberos Brute Force Attack</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M4-Abusing_Kerberos--Kerberoasting_65.html')">Kerberoasting</a></li>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M4-Abusing_Kerberos--Kerberos_Delegation_71.html')">Kerberos Delegation</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M4-Abusing_Kerberos--Kerberos_Delegation--Unconstrained_Delegation_72.html')">Unconstrained Delegation</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M4-Abusing_Kerberos--Kerberos_Delegation--Constrained_Delegation_74.html')">Constrained Delegation</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M4-Abusing_Kerberos--Kerberos_Delegation--Resource_Based_Constrained_Delegation_76.html')">Resource Based Constrained Delegation</a></li>
-</ul>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M5-Credential_Dumping_79.html')">M5-Credential Dumping</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M5-Credential_Dumping--NTDS.DIT_81.html')">NTDS.DIT</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M5-Credential_Dumping--SAM_and_Registry_Hive_83.html')">SAM and Registry Hive</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M5-Credential_Dumping--Domain_Cached_Credentials_85.html')">Domain Cached Credentials</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M5-Credential_Dumping--DCSync_Detection_87.html')">DCSync Detection</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M5-Credential_Dumping--ReadGMSAPassword_Attack_91.html')">ReadGMSAPassword Attack</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M6-Kerberos_Ticket_Attack_93.html')">M6-Kerberos Ticket Attack</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M6-Kerberos_Ticket_Attack--Golden_Ticket_95.html')">Golden Ticket</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M6-Kerberos_Ticket_Attack--Silver_Ticket_99.html')">Silver Ticket</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M6-Kerberos_Ticket_Attack--Diamond_Ticket_103.html')">Diamond Ticket</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--02-Detections--M6-Kerberos_Ticket_Attack--Sapphire_Ticket_105.html')">Sapphire Ticket</a></li>
-</ul>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--04-Sigma_Rules(Mandetory)_8.html')">04-Sigma_Rules(Mandetory)</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--04-Sigma_Rules(Mandetory)--SMB_Enumeration_17.html')">SMB Enumeration</a></li>
-</ul>
-<li><button onclick='toggleSubTree(this)'>-</button> <a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--05-_Links_From_Which_I_Study_9.html')">05- Links_From_Which_I_Study</a></li><ul class='subtree'>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--05-_Links_From_Which_I_Study--M1-Initial_AD_Exploitation_10.html')">M1-Initial AD Exploitation</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--05-_Links_From_Which_I_Study--M2-AD_Post_Enumeration_21.html')">M2-AD Post Enumeration</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--05-_Links_From_Which_I_Study--M3-DACL_Abuse_55.html')">M3-DACL Abuse</a></li>
-<li class='leaf'><a href='#' onclick="changeFrame('Active_Directory-Attack_And_Detection--05-_Links_From_Which_I_Study--M4-Abusing_Kerberos_77.html')">M4-Abusing Kerberos</a></li>
-</ul>
-</ul>
-</ul>
-</div>
-</div>
-<div class='page-panel'><iframe src='' id='page_frame'></iframe></div></div><script src='res/script3.js'></script>
 
+<div id="layout">
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║         TOP HEADER          ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <header id="site-header">
+    <button id="menu-toggle" aria-label="Toggle sidebar">☰</button>
+
+    <a href="#" class="site-logo" id="home-link">
+      <div class="logo-icon">🛡</div>
+      <span>AD Attack &amp; Detection Lab</span>
+    </a>
+
+    <div id="header-search" role="search">
+      <span class="search-icon">🔍</span>
+      <input type="search" placeholder="Search pages…" aria-label="Search pages" autocomplete="off" spellcheck="false" />
+    </div>
+
+    <div class="header-actions">
+      <a href="https://github.com/theHangingDog/active-directory-attack-detection-lab"
+         target="_blank" rel="noopener" title="View on GitHub" aria-label="GitHub repository">
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Search results dropdown -->
+  <div id="search-results" role="listbox" aria-label="Search results"></div>
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║          BODY ROW           ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <div id="body-row">
+
+    <!-- ── Sidebar overlay (mobile) ── -->
+    <div id="sidebar-overlay"></div>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║           SIDEBAR           ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <nav id="sidebar" aria-label="Site navigation">
+      <div id="sidebar-search-box">
+        <div class="sidebar-search-wrap">
+          <span class="search-icon">🔍</span>
+          <input id="sidebar-search" type="search" placeholder="Filter topics…" aria-label="Filter navigation" autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+      <div id="nav-tree" role="tree">
+        <!-- Populated by docs.js -->
+        <div style="padding:24px 12px;text-align:center;color:#8b949e;font-size:0.82rem">
+          Loading navigation…
+        </div>
+      </div>
+    </nav>
+
+    <!-- ╔══════════════════════════════╗ -->
+    <!-- ║          MAIN AREA          ║ -->
+    <!-- ╚══════════════════════════════╝ -->
+    <main id="main-area">
+
+      <!-- Breadcrumbs bar -->
+      <div id="content-topbar">
+        <nav id="breadcrumbs" aria-label="Breadcrumb">
+          <span class="breadcrumb-item current">🏠 Home</span>
+        </nav>
+      </div>
+
+      <!-- Scrollable content -->
+      <div id="content-scroll">
+
+        <!-- ── Loading spinner ── -->
+        <div id="loading">
+          <div class="spinner"></div>
+          <p>Loading…</p>
+        </div>
+
+        <!-- ── Home screen ── -->
+        <div id="home-screen">
+          <div id="content-area">
+
+            <div class="home-hero">
+              <h1>🛡️ Active Directory<br/>Attack &amp; Detection Lab</h1>
+              <p>
+                Hands-on lab documentation covering real-world Active Directory
+                attack techniques alongside detection strategies and Sigma rules.
+              </p>
+            </div>
+
+            <div class="home-cards">
+              <div class="home-card" data-section="01-Attacks">
+                <div class="card-icon">⚔️</div>
+                <h3>Attacks</h3>
+                <p>LLMNR Poisoning, DACL Abuse, Kerberoasting, Credential Dumping, Ticket Attacks and more.</p>
+              </div>
+              <div class="home-card" data-section="02-Detections">
+                <div class="card-icon">🛡️</div>
+                <h3>Detections</h3>
+                <p>Corresponding detection strategies for each attack module with evidence and log analysis.</p>
+              </div>
+              <div class="home-card" data-section="04-Sigma_Rules(Mandetory)">
+                <div class="card-icon">📋</div>
+                <h3>Sigma Rules</h3>
+                <p>Ready-to-use Sigma detection rules that can be deployed to your SIEM of choice.</p>
+              </div>
+              <div class="home-card" data-section="05- Links_From_Which_I_Study">
+                <div class="card-icon">🔗</div>
+                <h3>Study Links</h3>
+                <p>Curated reference materials, research papers, and external resources per module.</p>
+              </div>
+            </div>
+
+            <br/><br/>
+          </div>
+        </div>
+
+        <!-- ── Page content ── -->
+        <div id="page-content">
+          <div id="content-area">
+            <div id="doc-content"></div>
+
+            <!-- Prev / Next navigation -->
+            <nav id="page-nav" aria-label="Page navigation">
+              <a id="prev-btn" class="page-nav-btn prev" style="display:none">
+                <span class="arrow">←</span>
+                <span>
+                  <span class="nav-label">Previous</span>
+                  <span class="nav-title"></span>
+                </span>
+              </a>
+              <a id="next-btn" class="page-nav-btn next" style="display:none">
+                <span>
+                  <span class="nav-label">Next</span>
+                  <span class="nav-title"></span>
+                </span>
+                <span class="arrow">→</span>
+              </a>
+            </nav>
+
+          </div>
+        </div>
+
+      </div><!-- #content-scroll -->
+
+    </main><!-- #main-area -->
+
+  </div><!-- #body-row -->
+
+</div><!-- #layout -->
+
+<script src="res/docs.js"></script>
 </body>
 </html>
